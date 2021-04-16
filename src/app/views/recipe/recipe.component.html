@@ -1,0 +1,40 @@
+<mat-vertical-stepper #stepper>
+  <mat-step>
+      <ng-template matStepLabel>מצרכים</ng-template>
+      <div fxLayout="row" fxLayoutGap="8px">
+        <mat-form-field>
+          <mat-label>הוסף מצרך</mat-label>
+          <input #item matInput placeholder="הוסף">
+        </mat-form-field>
+        <button mat-mini-fab color="accent" (click)="addIngridient(item.value)">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div>
+        <button mat-button matStepperNext>הבא</button>
+      </div>
+    <div fxLayoutAlign="row" fxLayoutAlign="start start" fxLayoutGap="3px grid">
+      <mat-chip-list>
+        <mat-chip color="primary" 
+          *ngFor="let ingredient of ingredients"
+          (removed)="removeIngridient(ingredient)"
+        >
+          {{ingredient}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>אופן ההכנה</ng-template>
+      <mat-form-field style="width: 80%;">
+        <textarea matInput rows="10"></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>חזרה למצרכים</button>
+        <button mat-button matStepperNext>שמור</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-vertical-stepper>

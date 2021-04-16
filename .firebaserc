@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ben-shimon-cookbook": {
+      "hosting": {
+        "cookbook": [
+          "ben-shimon-cookbook"
+        ]
+      }
+    }
+  }
+}
